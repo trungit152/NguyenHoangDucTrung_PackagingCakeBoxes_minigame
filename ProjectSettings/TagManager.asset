@@ -3,16 +3,18 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Obstacle
+  - CheckBox
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Cake
   - Water
   - UI
-  - 
-  - 
+  - Box
+  - Obj
   - 
   - 
   - 
@@ -40,4 +42,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Obj
+    uniqueID: 1791157609
+    locked: 0
+  - name: UI
+    uniqueID: 3348730801
     locked: 0
