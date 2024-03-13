@@ -10,12 +10,12 @@ public class ButtonController : MonoBehaviour
     private void Start()
     {
         levelName = SceneManager.GetActiveScene().name;
-        //if (char.IsDigit(levelName[levelName.Length] - 1);
-        //{
-        //    Debug.Log("Chuỗi '" + "' là một số nguyên.");
-        //}
-        nextLevelNumber = int.Parse(levelName[levelName.Length - 1].ToString()) + 1;
-        nextLevelName = levelName.Substring(0, levelName.Length - 1) + nextLevelNumber.ToString();
+        char test = levelName[levelName.Length - 1];
+        if (char.IsDigit(test))
+        {
+            nextLevelNumber = int.Parse(levelName[levelName.Length - 1].ToString()) + 1;
+            nextLevelName = levelName.Substring(0, levelName.Length - 1) + nextLevelNumber.ToString();
+        }
     }
     public void HomeClick()
     {
@@ -29,8 +29,20 @@ public class ButtonController : MonoBehaviour
     {
         SceneManager.LoadScene("SelectLevel");
     }
+    //private bool SceneExists(string sceneName)
+    //{
+    //    for (int i = 0; i < SceneManager.sceneCount; i++)
+    //    {
+    //        Scene scene = SceneManager.GetSceneAt(i);
+    //        if (scene.name == sceneName)
+    //        {
+    //            return true;
+    //        }
+    //    }
+    //    return false;
+    //}
     public void NextLevelClick()
     {
-        SceneManager.LoadScene(nextLevelName);
+        SceneManager.LoadScene("SelectLevel");
     }
 }

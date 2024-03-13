@@ -14,7 +14,11 @@ public class GiftCheckBox : MonoBehaviour
     void Start()
     {
         thisLevelName = SceneManager.GetActiveScene().name;
-        thisLevel = int.Parse(thisLevelName[thisLevelName.Length - 1].ToString());
+        char test = thisLevelName[thisLevelName.Length - 1];
+        if (char.IsDigit(test))
+        {
+            thisLevel = int.Parse(thisLevelName[thisLevelName.Length - 1].ToString());
+        }
         cd = 0.6f;
         winImage.SetActive(false);
     }
