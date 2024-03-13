@@ -11,10 +11,11 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private Text levelText;
     [SerializeField] private Image lockImage;
     private int thisLevel;
+    private string levelName;
     void Start()
     {
-        data = ScriptableObject.CreateInstance<DataOS>();
         thisLevel = int.Parse(this.levelText.text);
+        levelName = "Level" + thisLevel.ToString();
     }
     void Update()
     {
@@ -28,5 +29,9 @@ public class LevelSelection : MonoBehaviour
             lockImage.enabled = true;
             levelText.enabled = false;
         }
+    }
+    public void OnClick()
+    {
+        SceneManager.LoadScene(levelName);
     }
 }

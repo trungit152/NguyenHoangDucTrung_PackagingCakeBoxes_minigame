@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - CheckBox
+  - Cake
   layers:
   - Default
   - TransparentFX

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,7 +12,7 @@ public class TimeController : MonoBehaviour
     private void Start()
     {
         LoseImage.SetActive(false);
-        time = 10f;
+        time = 45f;
         timeText.text = System.Math.Round(time,0).ToString();
     }
 

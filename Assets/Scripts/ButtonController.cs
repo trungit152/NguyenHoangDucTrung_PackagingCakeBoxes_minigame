@@ -1,18 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Windows;
 
 public class ButtonController : MonoBehaviour
 {
-    void Start()
+    private string levelName;
+    private string nextLevelName;
+    int nextLevelNumber;
+    private void Start()
     {
-        
-    }
-
-    void Update()
-    {
-        
+        levelName = SceneManager.GetActiveScene().name;
+        //if (char.IsDigit(levelName[levelName.Length] - 1);
+        //{
+        //    Debug.Log("Chuỗi '" + "' là một số nguyên.");
+        //}
+        nextLevelNumber = int.Parse(levelName[levelName.Length - 1].ToString()) + 1;
+        nextLevelName = levelName.Substring(0, levelName.Length - 1) + nextLevelNumber.ToString();
     }
     public void HomeClick()
     {
@@ -25,5 +28,9 @@ public class ButtonController : MonoBehaviour
     public void PlayClick()
     {
         SceneManager.LoadScene("SelectLevel");
+    }
+    public void NextLevelClick()
+    {
+        SceneManager.LoadScene(nextLevelName);
     }
 }
