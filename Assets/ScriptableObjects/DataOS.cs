@@ -6,4 +6,5 @@ using UnityEngine;
 public class DataOS : ScriptableObject
 {
     public int levelUnlocked = 1;
+
 }

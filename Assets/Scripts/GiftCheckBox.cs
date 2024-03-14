@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class GiftCheckBox : MonoBehaviour
 {
-    [SerializeField] private GameObject checkBox;
     [SerializeField] private GameObject winImage;
     public DataOS data;
 

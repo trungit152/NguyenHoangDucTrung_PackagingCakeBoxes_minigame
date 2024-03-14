@@ -6,15 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
-    void Start()
-    {
-        
-    }
-
-    void Update()
-    {
-        
-    }
     public void StartClick()
     {
         SceneManager.LoadScene("SeclectLevel");

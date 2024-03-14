@@ -7,6 +7,10 @@ TagManager:
   - Obstacle
   - CheckBox
   - Cake
+  - Inside
+  - Candy
+  - Outside
+  - Box
   layers:
   - Default
   - TransparentFX
@@ -16,7 +20,7 @@ TagManager:
   - UI
   - Box
   - Obj
-  - 
+  - Candy
   - 
   - 
   - 
