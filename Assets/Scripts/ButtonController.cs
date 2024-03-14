@@ -5,28 +5,25 @@ using UnityEngine.Windows;
 public class ButtonController : MonoBehaviour
 {
     private string levelName;
-    private string nextLevelName;
     int nextLevelNumber;
     private void Start()
     {
         levelName = SceneManager.GetActiveScene().name;
         char test = levelName[levelName.Length - 1];
-        if (char.IsDigit(test))
-        {
-            nextLevelNumber = int.Parse(levelName[levelName.Length - 1].ToString()) + 1;
-            nextLevelName = levelName.Substring(0, levelName.Length - 1) + nextLevelNumber.ToString();
-        }
     }
     public void HomeClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("StartMenu");
     }
     public void ResetClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void PlayClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("SelectLevel");
     }
     //private bool SceneExists(string sceneName)
@@ -43,6 +40,7 @@ public class ButtonController : MonoBehaviour
     //}
     public void NextLevelClick()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("SelectLevel");
     }
 }

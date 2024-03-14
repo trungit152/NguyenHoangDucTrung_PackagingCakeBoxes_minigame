@@ -13,3 +13,5 @@ MonoBehaviour:
   m_Name: Data
   m_EditorClassIdentifier: 
   levelUnlocked: 1
+  boxMoving: 0
+  cakeMoving: 0

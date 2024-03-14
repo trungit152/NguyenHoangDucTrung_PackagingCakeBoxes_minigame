@@ -18,7 +18,7 @@ public class Objects : MonoBehaviour
     public bool canMoveUpLong;
     public bool canMoveDownShort;
     public bool canMoveDownLong;
-
+    public bool specialCheck;
     public Vector2 currentPosition;
     void Update()
     {

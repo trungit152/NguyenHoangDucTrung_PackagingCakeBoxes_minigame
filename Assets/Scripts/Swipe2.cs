@@ -1,5 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
+using DG.Tweening;
+using static UnityEngine.GraphicsBuffer;
 
 public class SwipeDetectionMouse : MonoBehaviour
 {
@@ -10,7 +12,8 @@ public class SwipeDetectionMouse : MonoBehaviour
     private Vector2 fingerDownPosition;
     private Vector2 fingerUpPosition;
     private bool detectSwipe = false;
-    private float moveSpeed = 6f;
+    [SerializeField] private float baseSpeed = 20f;
+    private float moveSpeed = 20f;
     private bool isMoving = false;
 
     private Vector2 mouseDownPositionMouse;
@@ -19,12 +22,13 @@ public class SwipeDetectionMouse : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         targetPos = myObject.transform.position;
     }
     void Update()
     {
-        SwipeMouse();
         Swipe();
+        SwipeMouse();
 
         if (myObject.transform.position != targetPos)
         {
@@ -62,10 +66,12 @@ public class SwipeDetectionMouse : MonoBehaviour
                 if (myObject.canMoveRightLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(2, 0, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if (!myObject.canMoveRightLong && myObject.canMoveRightShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(1, 0, 0);
+                    moveSpeed = baseSpeed * 1 / 2;
                 }
                 else if (!myObject.canMoveRightShort)
                 {
@@ -79,10 +85,12 @@ public class SwipeDetectionMouse : MonoBehaviour
                 if (myObject.canMoveLeftLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(-2, 0, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if (!myObject.canMoveLeftLong && myObject.canMoveLeftShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(-1, 0, 0);
+                    moveSpeed = baseSpeed * 1 / 2;
                 }
                 else if (!myObject.canMoveLeftShort)
                 {
@@ -100,10 +108,12 @@ public class SwipeDetectionMouse : MonoBehaviour
                 if (myObject.canMoveUpLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, 2, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if (!myObject.canMoveUpLong && myObject.canMoveUpShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, 1, 0);
+                    moveSpeed = baseSpeed * 1 / 2;
                 }
                 else if (!myObject.canMoveUpShort)
                 {
@@ -116,10 +126,12 @@ public class SwipeDetectionMouse : MonoBehaviour
                 if (myObject.canMoveDownLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, -2, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if (!myObject.canMoveDownLong && myObject.canMoveDownShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, -1, 0);
+                    moveSpeed = baseSpeed * 1 / 2;
                 }
                 else if (!myObject.canMoveDownShort)
                 {
@@ -183,10 +195,12 @@ public class SwipeDetectionMouse : MonoBehaviour
                 if (myObject.canMoveRightLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(2, 0, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if(!myObject.canMoveRightLong && myObject.canMoveRightShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(1, 0, 0);
+                    moveSpeed = baseSpeed*1/2;
                 }
                 else if (!myObject.canMoveRightShort)
                 {
@@ -201,10 +215,12 @@ public class SwipeDetectionMouse : MonoBehaviour
                 if (myObject.canMoveLeftLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(-2, 0, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if (!myObject.canMoveLeftLong && myObject.canMoveLeftShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(-1, 0, 0);
+                    moveSpeed = baseSpeed * 1 / 2;
                 }
                 else if (!myObject.canMoveLeftShort)
                 {
@@ -219,13 +235,16 @@ public class SwipeDetectionMouse : MonoBehaviour
             if (deltaY > 0 && !isMoving)
             {
                 checkBox.SetActive(true);
+                Physics2D.SyncTransforms();
                 if (myObject.canMoveUpLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, 2, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if (!myObject.canMoveUpLong && myObject.canMoveUpShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, 1, 0);
+                    moveSpeed = baseSpeed * 1 / 2;
                 }
                 else if (!myObject.canMoveUpShort)
                 {
@@ -239,10 +258,12 @@ public class SwipeDetectionMouse : MonoBehaviour
                 if (myObject.canMoveDownLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, -2, 0);
+                    moveSpeed = baseSpeed;
                 }
                 else if (!myObject.canMoveDownLong && myObject.canMoveDownShort)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, -1, 0);
+                    moveSpeed = baseSpeed * 1 / 2;
                 }
                 else if (!myObject.canMoveDownShort)
                 {

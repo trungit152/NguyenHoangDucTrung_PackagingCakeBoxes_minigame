@@ -18,5 +18,5 @@ public class CheckBox : MonoBehaviour
             Destroy(cake);
         }
     }
-    
+
 }
