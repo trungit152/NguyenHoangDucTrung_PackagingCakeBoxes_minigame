@@ -3,10 +3,8 @@ using UnityEngine.SceneManagement;
 public class CheckBox : MonoBehaviour
 {
     [SerializeField] private GameObject cake;
-    //[SerializeField] private GameObject winImage;
     void Start()
     {
-        //winImage.SetActive(false);
     }
     private void Update()
     {

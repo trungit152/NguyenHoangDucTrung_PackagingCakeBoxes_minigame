@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class StartMenu : MonoBehaviour
 {
+    public AudioSource clickSound;
     public void StartClick()
     {
+        clickSound.Play();
         SceneManager.LoadScene("SeclectLevel");
     }
 }

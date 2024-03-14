@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class TimeController : MonoBehaviour
 {
     private float time;
-
+    public AudioSource loseSound;
     [SerializeField] private Text timeText;
     [SerializeField] private GameObject LoseImage;
 
@@ -27,6 +27,7 @@ public class TimeController : MonoBehaviour
         if(time <= 0)
         {
             LoseImage.SetActive(true);
+            loseSound.Play();
         }
     }
 }

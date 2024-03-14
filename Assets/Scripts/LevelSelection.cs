@@ -12,6 +12,7 @@ public class LevelSelection : MonoBehaviour
     [SerializeField] private Image lockImage;
     private int thisLevel;
     private string levelName;
+
     void Start()
     {
         thisLevel = int.Parse(this.levelText.text);
@@ -32,6 +33,10 @@ public class LevelSelection : MonoBehaviour
     }
     public void OnClick()
     {
-        SceneManager.LoadScene(levelName);
+        if(data.levelUnlocked >= thisLevel)
+        {
+            SceneManager.LoadScene(levelName);
+        }
+        
     }
 }

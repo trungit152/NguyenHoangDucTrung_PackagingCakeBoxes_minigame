@@ -7,7 +7,9 @@ public class GiftCheckBox : MonoBehaviour
 {
     [SerializeField] private GameObject winImage;
     public DataOS data;
+    public AudioSource winSound;
 
+    private bool playable = false;
     private float cd = 0.3f;
     private string thisLevelName;
     private int thisLevel;
@@ -29,16 +31,23 @@ public class GiftCheckBox : MonoBehaviour
             cd -= Time.deltaTime;
         }
         else if (cd <= 0)
-        {
+        {           
             winImage.SetActive(true);
             Time.timeScale = 0;
-        }   
+        }
+
+        if (playable)
+        {
+            winSound.Play();
+            playable = false;
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Cake"))
         {
             cd -= 0.01f;
+            playable = true;
             if(data.levelUnlocked == thisLevel)
             {
                 data.levelUnlocked++;

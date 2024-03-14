@@ -1,7 +1,5 @@
 ﻿using TMPro;
 using UnityEngine;
-using DG.Tweening;
-using static UnityEngine.GraphicsBuffer;
 
 public class SwipeDetectionMouse : MonoBehaviour
 {
@@ -15,11 +13,12 @@ public class SwipeDetectionMouse : MonoBehaviour
     [SerializeField] private float baseSpeed = 20f;
     private float moveSpeed = 20f;
     private bool isMoving = false;
-
     private Vector2 mouseDownPositionMouse;
     private Vector2 mouseUpPositionMouse;
     private bool detectSwipeMouse = false;
 
+    public AudioSource swipeSound;
+    public DataOS data;
     private void Start()
     {
         Time.timeScale = 1;
@@ -159,6 +158,10 @@ public class SwipeDetectionMouse : MonoBehaviour
             {
                 fingerUpPosition = touch.position;
                 DetectSwipeDirection();
+                if (myObject.transform.position != targetPos)
+                {
+                    swipeSound.Play();
+                }
             }
         }
     }
@@ -178,6 +181,10 @@ public class SwipeDetectionMouse : MonoBehaviour
         {
             mouseUpPositionMouse = Input.mousePosition;
             DetectSwipeDirectionMouse();
+            if(myObject.transform.position != targetPos)
+            {
+                swipeSound.Play();
+            }
         }
     }
 
@@ -211,7 +218,6 @@ public class SwipeDetectionMouse : MonoBehaviour
             else if (deltaX < 0 && !isMoving)
             {
                 checkBox.SetActive(false);
-                Debug.Log("Vuốt sang trái");
                 if (myObject.canMoveLeftLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(-2, 0, 0);
@@ -253,7 +259,6 @@ public class SwipeDetectionMouse : MonoBehaviour
             }
             else if (deltaY < 0 && !isMoving)
             {
-                Debug.Log("Vuốt xuống dưới");
                 checkBox.SetActive(true);
                 if (myObject.canMoveDownLong)
                 {
