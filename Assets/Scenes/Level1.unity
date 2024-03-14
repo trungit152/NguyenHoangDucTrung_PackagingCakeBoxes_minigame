@@ -579,6 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myObject: {fileID: 306299033}
+  checkBox: {fileID: 1935557926}
 --- !u!50 &306299031
 Rigidbody2D:
   serializedVersion: 4
@@ -2600,6 +2601,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myObject: {fileID: 1890292716}
+  checkBox: {fileID: 705404078}
 --- !u!50 &1890292714
 Rigidbody2D:
   serializedVersion: 4

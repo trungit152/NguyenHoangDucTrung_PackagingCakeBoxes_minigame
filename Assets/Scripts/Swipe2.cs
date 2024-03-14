@@ -4,6 +4,7 @@ using UnityEngine;
 public class SwipeDetectionMouse : MonoBehaviour
 {
     [SerializeField] private Objects myObject;
+    [SerializeField] private GameObject checkBox;
 
     private Vector3 targetPos;
     private Vector2 fingerDownPosition;
@@ -57,6 +58,7 @@ public class SwipeDetectionMouse : MonoBehaviour
             // Vuốt ngang
             if (deltaX > 0 && !isMoving)
             {
+                checkBox.SetActive(false);
                 if (myObject.canMoveRightLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(2, 0, 0);
@@ -73,6 +75,7 @@ public class SwipeDetectionMouse : MonoBehaviour
                 
             else if (deltaX < 0 && !isMoving)
             {
+                checkBox.SetActive(false);
                 if (myObject.canMoveLeftLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(-2, 0, 0);
@@ -93,6 +96,7 @@ public class SwipeDetectionMouse : MonoBehaviour
             // Vuốt dọc
             if (deltaY > 0 && !isMoving)
             {
+                checkBox.SetActive(true);
                 if (myObject.canMoveUpLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, 2, 0);
@@ -108,6 +112,7 @@ public class SwipeDetectionMouse : MonoBehaviour
             }
             else if (deltaY < 0 && !isMoving)
             {
+                checkBox.SetActive(true);
                 if (myObject.canMoveDownLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, -2, 0);
@@ -174,7 +179,8 @@ public class SwipeDetectionMouse : MonoBehaviour
             // Vuốt ngang
             if (deltaX > 0 && !isMoving)
             {
-                if(myObject.canMoveRightLong)
+                checkBox.SetActive(false);
+                if (myObject.canMoveRightLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(2, 0, 0);
                 }
@@ -190,6 +196,7 @@ public class SwipeDetectionMouse : MonoBehaviour
                 
             else if (deltaX < 0 && !isMoving)
             {
+                checkBox.SetActive(false);
                 Debug.Log("Vuốt sang trái");
                 if (myObject.canMoveLeftLong)
                 {
@@ -211,6 +218,7 @@ public class SwipeDetectionMouse : MonoBehaviour
             // Vuốt dọc
             if (deltaY > 0 && !isMoving)
             {
+                checkBox.SetActive(true);
                 if (myObject.canMoveUpLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, 2, 0);
@@ -227,6 +235,7 @@ public class SwipeDetectionMouse : MonoBehaviour
             else if (deltaY < 0 && !isMoving)
             {
                 Debug.Log("Vuốt xuống dưới");
+                checkBox.SetActive(true);
                 if (myObject.canMoveDownLong)
                 {
                     targetPos = myObject.transform.position + new Vector3(0, -2, 0);
